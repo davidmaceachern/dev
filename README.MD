@@ -19,7 +19,7 @@ Code to set up a developer environment.
 
 ## ✅Goals
 
-Simple way to manage a VM which can be used as a Dev Box whilst staying within AWS Free Tier.
+Automated management of a VM which can be used as a Dev Box whilst staying within AWS Free Tier.
 
 ## 👏🏻 Credit
 
