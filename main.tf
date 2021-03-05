@@ -14,9 +14,9 @@ terraform {
 
 provider "aws" {
   region  = "eu-west-3"
-    endpoints {
-    sts = "https://sts.eu-west-3.amazonaws.com"
-  }
+#   endpoints {
+#     sts = "https://sts.eu-west-3.amazonaws.com"
+#   }
 }
 
 resource "aws_s3_bucket" "terraform_state" {
