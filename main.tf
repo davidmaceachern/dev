@@ -1,6 +1,9 @@
 provider "aws" {
   version = "~> 3.0"
   region  = "eu-west-3"
+    endpoints {
+    sts = "https://sts.eu-west-3.amazonaws.com"
+  }
 }
 
 terraform {
