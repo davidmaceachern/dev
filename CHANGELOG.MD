@@ -1,3 +1,11 @@
+#### 2021, Sat, Mar 6 
+
+1. Adding a budget to track free tier usage
+    * Documentated [here](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.html) it's possible to track free tier usage using AWS Billing. Granting access to an IAM user via adding a policy is not enough, the root account is in charge of billing and so it's via the root account that billing access for IAM  users must be activated, read more [here](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/control-access-billing.html#ControllingAccessWebsite-Activate). Following those steps, then checking in the dev user portal appears to activate the billing home page but not the budgets page. Appears that `AWSBudgetsActionsWithAWSResourceControlAccess` is also required for budget's access.
+    * The free tier usage tracking with AWS Budgets can be found [here](https://aws.amazon.com/getting-started/hands-on/control-your-costs-free-tier-budgets/), and a budget can be manually set up this way.
+    * Replicate the budget in Terraform, using the [budget](https://console.aws.amazon.com/billing/home#/budgets/details?name=Monthly%20Cost%20Budget) and the [docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/budgets_budget#argument-reference)
+
+
 #### 2021, Fri, Mar 5 
 
 1. Install Nix tool to obtain Terraform and other dependencies
