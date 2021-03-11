@@ -1,3 +1,10 @@
+#### 2021, Thu, Mar 11 
+
+1. Continuing Terraform of Budget
+    * `Terraform import` appears to have additional configuration when using a remote backend, so instead stuck to cross referencing manually created budget with local tf file.
+    * Deleted manually created budget and pushing local tf file.
+
+
 #### 2021, Sat, Mar 6 
 
 1. Adding a budget to track free tier usage
