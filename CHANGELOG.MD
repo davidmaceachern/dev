@@ -1,6 +1,25 @@
 #### 2021, Fri, Mar 12
+
 1. Move Terraform into modules.
     * Move the budget into a module, set up folders for modules.
+    * Pushing this, the build failed with:
+        ```
+        aws_budgets_budget.cost: Destroying... [id=:Monthly Cost Budget]
+        module.budget.aws_budgets_budget.cost: Creating...
+        aws_budgets_budget.cost: Destruction complete after 0s
+
+        Error: create budget failed: DuplicateRecordException: Error creating budget: Monthly Cost Budget - the budget already exists.
+
+        on modules/budget/main.tf line 1, in resource "aws_budgets_budget" "cost":
+        1: resource "aws_budgets_budget" "cost" {
+        ```
+    * After triggering another run the conflict was avoided.
+        ```
+        aws_s3_bucket.terraform_state: Refreshing state... [id=dev-dmac]
+        module.budget.aws_budgets_budget.cost: Creating...
+        module.budget.aws_budgets_budget.cost: Creation complete after 3s [id=:Monthly Cost Budget]
+        ```
+    * Downside of using Github Actions is that all logs are public. Changing repository to a template and moving actual running implementation to private repository, hopefully 2,000 Actions minutes/month will be enough to run this!
 
 #### 2021, Thu, Mar 11 
 
