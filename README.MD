@@ -10,14 +10,9 @@
 Code to set up a developer environment.
 </p>
 
-<div align="center">
-  <a alt="GitHub Workflow Status" href="https://github.com/davidmaceachern/dev/actions">
-    <img  src="https://img.shields.io/github/workflow/status/davidmaceachern/dev/Deploy">
-  </a>
-</div>
 <br />
 
-## ✅Goals
+## ✅ Goals
 
 Automated management of a VM which can be used as a Dev Box whilst staying within AWS Free Tier.
 
