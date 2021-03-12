@@ -13,7 +13,7 @@ terraform {
 }
 
 provider "aws" {
-  region  = "eu-west-3"
+  region  = var.region
 }
 
 resource "aws_s3_bucket" "terraform_state" {
@@ -22,4 +22,8 @@ resource "aws_s3_bucket" "terraform_state" {
   versioning {
     enabled = true
   }
+}
+
+module "budget" {
+  source = "./modules/budget"
 }

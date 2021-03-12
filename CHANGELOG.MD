@@ -1,9 +1,25 @@
+#### 2021, Fri, Mar 12
+1. Move Terraform into modules.
+    * Move the budget into a module, set up folders for modules.
+
 #### 2021, Thu, Mar 11 
 
-1. Continuing Terraform of Budget
+1. Continuing Terraform of Budget:
     * `Terraform import` appears to have additional configuration when using a remote backend, so instead stuck to cross referencing manually created budget with local tf file.
     * Deleted manually created budget and pushing local tf file.
-
+    * Verified that the CI/CD build passed and the budget reappeared in the console.
+2. Adding an ec2 instance:
+    * Reusing the modules from https://github.com/pvarentsov/terraform-aws-free-tier.
+    * So it appears that AWS only allow deployment of eligible free tier ami's,
+        > Third-party applications or services from AWS Marketplace aren't eligible for the AWS Free Tier.
+    
+    * this means just `Ubuntu` and not `# NixOS 20.09.1632.a6a3a368dda x86_64-linux`. Might be possible to circumvent this using https://github.com/elitak/nixos-infect.
+    * It's a community provided image so for this to work under free tier we need to know:
+        1. Can we run a community ami in the free tier, as long as it can use t2.micro and ebs backed storage?
+        2. We need to verify who provided the image to determine whether we can trust. We can check by calling with the AMI ID `aws ec2 describe-images  --image-ids ami-07f493412d6213de6 --region=eu-west-3`
+        3. The official latest image id is also available [here](https://nixos.org/download.html#nixos-amazon)
+        4. Have posted a question about this [here](https://serverfault.com/questions/1056732/are-community-amis-eligible-for-ec2-free-tier)
+        5. Apparently it's possible to run on the free tier, as someone has [written](https://typeclasses.com/nixos-on-aws#launching-an-ec2-instance) about it. 
 
 #### 2021, Sat, Mar 6 
 
